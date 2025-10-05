@@ -1,7 +1,14 @@
 package com.mycompany.gforcecalculator;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 
 
 /*
@@ -27,14 +34,26 @@ public class CalculatorFrame extends javax.swing.JFrame {
     ArrayList<Calculation> list = new ArrayList<>(4);
     public CalculatorFrame() {
         initComponents();
-
+        getKeyBinding();
 
 
 
     }
+    Action enterAction = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("enter pressed");
+        }
+    };
     private void updateList(Calculation object, ArrayList<Calculation> list){
         list.remove(object);
         list.add(object);
+    }
+    private void getKeyBinding(){
+        InputMap ıMap = getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW); 
+        ActionMap aMap = getRootPane().getActionMap(); 
+        ıMap.put(KeyStroke.getKeyStroke("ENTER"), "enter"); 
+        aMap.put("enter", enterAction);
     }
 
 
@@ -118,56 +137,24 @@ public class CalculatorFrame extends javax.swing.JFrame {
     //focus ile hangisinin seçildiğini buluyor
     private void txtRadiusFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRadiusFocusGained
         updateList(radious, list);
-        try{
-            for(Calculation calculation: list){
-                System.out.println(calculation.getName());
-            }
-            System.out.println("///");
-        } catch(ArrayIndexOutOfBoundsException exception){
-
-        }
     }//GEN-LAST:event_txtRadiusFocusGained
 
     private void txtAVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAVFocusGained
         updateList(Avelocity, list);
-        try{
-            for(Calculation calculation: list){
-                System.out.println(calculation.getName());
-            }
-            System.out.println("///");
-        } catch(ArrayIndexOutOfBoundsException exception){
-
-        }
     }//GEN-LAST:event_txtAVFocusGained
 
     private void txtTVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTVFocusGained
         updateList(Tvelocity, list);
-        try{
-            for(Calculation calculation: list){
-                System.out.println(calculation.getName());
-            }
-            System.out.println("///");
-        } catch(ArrayIndexOutOfBoundsException exception){
-
-        }
 
     }//GEN-LAST:event_txtTVFocusGained
 
     private void txtCAFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCAFocusGained
         updateList(Cacceleration, list);
-        try{
-            for(Calculation calculation: list){
-                System.out.println(calculation.getName());
-            }
-            System.out.println("///");
-        } catch(ArrayIndexOutOfBoundsException exception){
-
-        }
     }//GEN-LAST:event_txtCAFocusGained
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getID() == KeyEvent.VK_ENTER){
-            //entera basarsa calculate yap, şuan çalışmıyor olabilir
+           
             System.out.println("enter basıldı");
         }
     }//GEN-LAST:event_formKeyPressed

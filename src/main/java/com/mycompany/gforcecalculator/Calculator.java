@@ -78,6 +78,51 @@ public class Calculator {
         prio[3] = p;
     }
 
+    public void set_leds() {
+        /*
+         * TODO: implement this
+         */
+    }
+
+    /*
+     * TODO: set_spec here again
+     */
+
+    private void set(char c, double value) {
+        switch(c) {
+            case 'a': {
+                a = value;
+                break;
+            }
+            case 'r': {
+                r = value;
+                break;
+            }
+            case 'v': {
+                v = value;
+                break;
+            }
+            case 'w': {
+                w = value;
+                break;
+            }
+            default: throw new IllegalArgumentException(String.format("\"c\" (%c) does not match with {'a','r','v','w'}", c));
+        }
+        adjust_prio(c);
+        calc(String.valueOf(prio[0]) + prio[1]);
+        set_leds();
+    }
+
+    private double get(char c) {
+        switch(c) {
+            case 'a': return a;
+            case 'r': return r;
+            case 'v': return v;
+            case 'w': return w;
+            default: throw new IllegalArgumentException(String.format("\"c\" (%c) does not match with {'a','r','v','w'}", c));
+        }
+    }
+
     public double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){
         return 1;
     }

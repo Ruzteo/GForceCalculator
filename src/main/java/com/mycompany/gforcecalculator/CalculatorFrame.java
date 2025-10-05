@@ -49,7 +49,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
     Action enterAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("fgsdfgsdg");
+            System.out.println("enter pressed");
         }
     };
 
@@ -77,14 +77,14 @@ public class CalculatorFrame extends javax.swing.JFrame {
         lblImgRadious2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        txtRadius = new javax.swing.JTextField();
-        txtAV = new javax.swing.JTextField();
+        AV = new javax.swing.JTextField();
         txtTV = new javax.swing.JTextField();
-        txtCA = new javax.swing.JTextField();
         lblTV = new javax.swing.JLabel();
         lblCA = new javax.swing.JLabel();
         lblAV = new javax.swing.JLabel();
         lblRadious = new javax.swing.JLabel();
+        txtCA = new javax.swing.JTextField();
+        txtRadius2 = new javax.swing.JTextField();
 
         lblImgRadious2.setText("jLabel1");
 
@@ -93,7 +93,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calculator");
+        setTitle("Calcutor");
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -101,20 +101,9 @@ public class CalculatorFrame extends javax.swing.JFrame {
             }
         });
 
-        txtRadius.addFocusListener(new java.awt.event.FocusAdapter() {
+        AV.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtRadiusFocusGained(evt);
-            }
-        });
-
-        txtAV.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtAVFocusGained(evt);
-            }
-        });
-        txtAV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAVActionPerformed(evt);
+                AVFocusGained(evt);
             }
         });
 
@@ -124,102 +113,102 @@ public class CalculatorFrame extends javax.swing.JFrame {
             }
         });
 
+        lblTV.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblTV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblCA.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblCA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblAV.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblAV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblRadious.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblRadious.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         txtCA.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtCAFocusGained(evt);
             }
         });
-        txtCA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCAActionPerformed(evt);
+
+        txtRadius2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtRadius2FocusGained(evt);
             }
         });
-
-        lblTV.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-
-        lblCA.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-
-        lblAV.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-
-        lblRadious.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblCA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblTV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblRadious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(lblAV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRadious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCA)
-                    .addComponent(txtTV)
-                    .addComponent(txtAV, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRadius, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTV)
+                            .addComponent(AV, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCA, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRadius2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtRadius, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                    .addComponent(lblRadious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblRadious, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(txtRadius2))
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtAV, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(lblAV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addComponent(lblTV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(lblCA, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(txtTV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AV, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(txtCA, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58))
+                        .addComponent(txtTV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCA, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //focus ile hangisinin seçildiğini buluyor
-    private void txtRadiusFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRadiusFocusGained
+    private void AVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AVFocusGained
         updateList(radious, list);
-    }//GEN-LAST:event_txtRadiusFocusGained
-
-    private void txtAVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAVFocusGained
-        updateList(Avelocity, list);
-    }//GEN-LAST:event_txtAVFocusGained
+    }//GEN-LAST:event_AVFocusGained
 
     private void txtTVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTVFocusGained
         updateList(Tvelocity, list);
 
     }//GEN-LAST:event_txtTVFocusGained
 
-    private void txtCAFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCAFocusGained
-        updateList(Cacceleration, list);
-    }//GEN-LAST:event_txtCAFocusGained
-
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
 
     }//GEN-LAST:event_formKeyPressed
 
-    private void txtCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCAActionPerformed
+    private void txtCAFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCAFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCAActionPerformed
+    }//GEN-LAST:event_txtCAFocusGained
 
-    private void txtAVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAVActionPerformed
+    private void txtRadius2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRadius2FocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAVActionPerformed
+    }//GEN-LAST:event_txtRadius2FocusGained
 
     /**
      * @param args the command line arguments
@@ -247,6 +236,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AV;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblAV;
@@ -254,9 +244,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblImgRadious2;
     private javax.swing.JLabel lblRadious;
     private javax.swing.JLabel lblTV;
-    private javax.swing.JTextField txtAV;
     private javax.swing.JTextField txtCA;
-    private javax.swing.JTextField txtRadius;
+    private javax.swing.JTextField txtRadius2;
     private javax.swing.JTextField txtTV;
     // End of variables declaration//GEN-END:variables
 }

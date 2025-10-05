@@ -60,15 +60,7 @@ public class Calculator {
         a = g;
         w = 1.0;
 
-        /*
-         * TODO: set text boxes here etc etc
-         */
-
         calc("rv");
-
-        /*
-         * TODO: init set_spec
-         */
 
         set_leds();
     }
@@ -90,9 +82,6 @@ public class Calculator {
     }
 
     private void calc(String what) {
-        /*
-         * TODO: implementation of set_spec
-         */
         switch(what) {
             case "rw":
             case "wr": {
@@ -151,10 +140,6 @@ public class Calculator {
          * TODO: implement this
          */
     }
-
-    /*
-     * TODO: set_spec here again
-     */
 
     public void set(char c, double value) {
         switch(c) {

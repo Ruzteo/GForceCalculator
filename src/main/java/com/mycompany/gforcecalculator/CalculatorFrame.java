@@ -1,13 +1,17 @@
 package com.mycompany.gforcecalculator;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
+import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 
@@ -32,17 +36,25 @@ public class CalculatorFrame extends javax.swing.JFrame {
     Calculation Tvelocity = new Calculation("Tvelocity");
     Calculation Cacceleration = new Calculation("Cacceleration");
     ArrayList<Calculation> list = new ArrayList<>(4);
+    
     public CalculatorFrame() {
         initComponents();
+        lblAV.setText("-");
+        lblRadious.setText("-");
+        lblTV.setText("-");
+        lblCA.setText("-");
         getKeyBinding();
+        
+
 
 
 
     }
+   
     Action enterAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("enter pressed");
+            
         }
     };
     private void updateList(Calculation object, ArrayList<Calculation> list){
@@ -67,10 +79,23 @@ public class CalculatorFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblImgRadious2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         txtRadius = new javax.swing.JTextField();
         txtAV = new javax.swing.JTextField();
         txtTV = new javax.swing.JTextField();
         txtCA = new javax.swing.JTextField();
+        lblTV = new javax.swing.JLabel();
+        lblCA = new javax.swing.JLabel();
+        lblAV = new javax.swing.JLabel();
+        lblRadious = new javax.swing.JLabel();
+
+        lblImgRadious2.setText("jLabel1");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calcutor");
@@ -92,6 +117,11 @@ public class CalculatorFrame extends javax.swing.JFrame {
                 txtAVFocusGained(evt);
             }
         });
+        txtAV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAVActionPerformed(evt);
+            }
+        });
 
         txtTV.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -104,17 +134,38 @@ public class CalculatorFrame extends javax.swing.JFrame {
                 txtCAFocusGained(evt);
             }
         });
+        txtCA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCAActionPerformed(evt);
+            }
+        });
+
+        lblTV.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+
+        lblCA.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+
+        lblAV.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+
+        lblRadious.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(202, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(152, 152, 152)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblCA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRadious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCA)
                     .addComponent(txtTV)
-                    .addComponent(txtAV)
+                    .addComponent(txtAV, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRadius, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
@@ -122,14 +173,25 @@ public class CalculatorFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(txtRadius, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(txtAV, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(txtTV, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(txtCA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtRadius, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(lblRadious, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtAV, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(lblAV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(lblCA, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(txtTV, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(txtCA, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(58, 58, 58))
         );
 
         pack();
@@ -159,6 +221,14 @@ public class CalculatorFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formKeyPressed
 
+    private void txtCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCAActionPerformed
+
+    private void txtAVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAVActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -185,6 +255,13 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblAV;
+    private javax.swing.JLabel lblCA;
+    private javax.swing.JLabel lblImgRadious2;
+    private javax.swing.JLabel lblRadious;
+    private javax.swing.JLabel lblTV;
     private javax.swing.JTextField txtAV;
     private javax.swing.JTextField txtCA;
     private javax.swing.JTextField txtRadius;

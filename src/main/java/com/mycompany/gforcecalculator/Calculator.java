@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Calculator {
     private static double a, r, v, w;
     private static double g                  = 9.80665; /* gravity */
-    private static ArrayList<Character> prio = new ArrayList<>();
+    private static char[] prio = {'r', 'w', 'v', 'a'};
 
     private static void calc(String what) {
         /*
@@ -64,12 +64,12 @@ public class Calculator {
         int i;
 
         for (i = 0;i < 3;i++)
-            if (prio.get(i) == p) break;
+            if (prio[i] == p) break;
 
         for (int j = i;j < 3;j++)
-            prio.set(j, prio.get(j+1));
+            prio[j] = prio[j+1];
 
-        prio.set(3, p);
+        prio[3] = p;
     }
 
     public static double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){

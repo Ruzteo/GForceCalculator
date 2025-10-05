@@ -39,31 +39,31 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     public CalculatorFrame() {
         initComponents();
-        lblAV.setText("-");
-        lblRadious.setText("-");
-        lblTV.setText("-");
-        lblCA.setText("-");
+        lblAV.setText("Angular Velocity");
+        lblRadious.setText("Radius");
+        lblTV.setText("Tangential Velocity");
+        lblCA.setText("Centripetal Acceleration");
         getKeyBinding();
     }
 
     Action enterAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            System.out.println("fgsdfgsdg");
         }
     };
+
     private void updateList(Calculation object, ArrayList<Calculation> list){
         list.remove(object);
         list.add(object);
     }
+
     private void getKeyBinding(){
         InputMap iMap = getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap aMap = getRootPane().getActionMap();
         iMap.put(KeyStroke.getKeyStroke("ENTER"), "enter");
         aMap.put("enter", enterAction);
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,7 +93,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calcutor");
+        setTitle("Calculator");
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -210,10 +210,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCAFocusGained
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        if(evt.getID() == KeyEvent.VK_ENTER){
 
-            System.out.println("enter basıldı");
-        }
     }//GEN-LAST:event_formKeyPressed
 
     private void txtCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCAActionPerformed

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Calculator {
     private static double a, r, v, w;
-    private static ArrayList<String> prio = new ArrayList<String>();
+    private static ArrayList<Character> prio = new ArrayList<>();
 
     private static void calc(String what) {
         /*
@@ -57,6 +57,18 @@ public class Calculator {
             }
            default: throw new IllegalArgumentException("\"what\" is not correct");
         }
+    }
+
+    private static void adjust_prio(char p) {
+        int i;
+
+        for (i = 0;i < 3;i++)
+            if (prio.get(i) == p) break;
+
+        for (int j = i;j < 3;j++)
+            prio.set(j, prio.get(j+1));
+
+        prio.set(3, p);
     }
 
     public static double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){

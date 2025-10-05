@@ -32,6 +32,11 @@ public class CalculatorFrame extends javax.swing.JFrame {
      * Creates new form CalculatorFrame
      */
 
+    Calculation radious = new Calculation("radious");
+    Calculation Avelocity = new Calculation("Avelocity");
+    Calculation Tvelocity = new Calculation("Tvelocity");
+    Calculation Cacceleration = new Calculation("Cacceleration");
+    ArrayList<Calculation> list = new ArrayList<>(4);
     Calculator calculator = Calculator.getInstance();
 
     public CalculatorFrame() {
@@ -40,8 +45,17 @@ public class CalculatorFrame extends javax.swing.JFrame {
         lblRadious.setText("Radius (meters)");
         lblTV.setText("Tangential Velocity (meters/sec)");
         lblCA.setText("Centripetal Acceleration (g)");
+        radious.setValue(txtRadius2);
+        Avelocity.setValue(AV);
+        Tvelocity.setValue(txtTV);
+        Cacceleration.setValue(txtCA);
         updateFields();
         getKeyBinding();
+    }
+
+    private void updateList(Calculation object, ArrayList<Calculation> list){
+        list.remove(object);
+        list.add(object);
     }
 
     private void updateFields() {
@@ -54,7 +68,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
     Action enterAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JTextField source = (JTextField)e.getSource();
+            JTextField source = list.getLast().getValue();
 
             double dbl;
 
@@ -214,11 +228,11 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //focus ile hangisinin seçildiğini buluyor
     private void AVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AVFocusGained
-
+        updateList(Avelocity, list);
     }//GEN-LAST:event_AVFocusGained
 
     private void txtTVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTVFocusGained;
-
+        updateList(Tvelocity, list);
     }//GEN-LAST:event_txtTVFocusGained
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -226,11 +240,11 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formKeyPressed
 
     private void txtCAFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCAFocusGained
-        // TODO add your handling code here:
+        updateList(Cacceleration, list);
     }//GEN-LAST:event_txtCAFocusGained
 
     private void txtRadius2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRadius2FocusGained
-        // TODO add your handling code here:
+       updateList(radious, list);
     }//GEN-LAST:event_txtRadius2FocusGained
 
     /**

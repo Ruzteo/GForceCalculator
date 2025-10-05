@@ -4,14 +4,62 @@
  */
 package com.mycompany.gforcecalculator;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ruzte
  */
 public class Calculator {
+    private static double a, r, v, w;
+    private static ArrayList<String> prio = new ArrayList<String>();
+
+    private static void calc(String what) {
+        /*
+         * TODO: r_text and w_text implementation, aswell as set_spec
+         */
+        switch(what) {
+            case "rw":
+            case "wr": {
+                r = v * v / a;
+                w = a / v;
+                break;
+            }
+            case "rv":
+            case "vr": {
+                r = a / (w * w);
+                v = a / w;
+                break;
+            }
+            case "ar":
+            case "ra": {
+                a = v * w;
+                r = v / w;
+                break;
+            }
+            case "vw":
+            case "wv": {
+                v = Math.sqrt(a * r);
+                w = Math.sqrt(a / r);
+                break;
+            }
+            case "aw":
+            case "wa": {
+                a = v * v / r;
+                w = v / r;
+                break;
+            }
+            case "av":
+            case "va": {
+                a = w * w * r;
+                v = w * r;
+                break;
+            }
+           default: throw new IllegalArgumentException("\"what\" is not correct");
+        }
+    }
+
     public static double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){
-        //buraya işlemler gidiyor
-        
         return 1;
     }
 }

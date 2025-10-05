@@ -11,11 +11,17 @@ import java.util.ArrayList;
  * @author ruzte
  */
 public class Calculator {
-    private static double a, r, v, w;
-    private static double g                  = 9.80665; /* gravity */
-    private static char[] prio = {'r', 'w', 'v', 'a'};
+    private double a, r, v, w;
+    private double g    = 9.80665; /* gravity */
+    private char[] prio = {'r', 'w', 'v', 'a'};
 
-    private static void calc(String what) {
+    private static final Calculator instance = new Calculator();
+
+    private Calculator() {
+
+    }
+
+    private void calc(String what) {
         /*
          * TODO: r_text and w_text implementation, aswell as set_spec
          */
@@ -60,7 +66,7 @@ public class Calculator {
         }
     }
 
-    private static void adjust_prio(char p) {
+    private void adjust_prio(char p) {
         int i;
 
         for (i = 0;i < 3;i++)
@@ -72,7 +78,11 @@ public class Calculator {
         prio[3] = p;
     }
 
-    public static double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){
+    public double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){
         return 1;
+    }
+
+    public static Calculator getInstance() {
+        return instance;
     }
 }

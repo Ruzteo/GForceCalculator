@@ -14,30 +14,30 @@ import java.util.ArrayList;
  * @author ruzte
  */
 public class CalculatorFrame extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CalculatorFrame.class.getName());
     /**
      * Creates new form CalculatorFrame
      */
-    
-    Calculation radious = new Calculation("radious"); 
-    Calculation Avelocity = new Calculation("Avelocity"); 
-    Calculation Tvelocity = new Calculation("Tvelocity"); 
-    Calculation Cacceleration = new Calculation("Cacceleration"); 
-    ArrayList<Calculation> list = new ArrayList<>(4); 
+
+    Calculation radious = new Calculation("radious");
+    Calculation Avelocity = new Calculation("Avelocity");
+    Calculation Tvelocity = new Calculation("Tvelocity");
+    Calculation Cacceleration = new Calculation("Cacceleration");
+    ArrayList<Calculation> list = new ArrayList<>(4);
     public CalculatorFrame() {
         initComponents();
-        
-        
-       
-      
+
+
+
+
     }
     private void updateList(Calculation object, ArrayList<Calculation> list){
-        list.remove(object); 
+        list.remove(object);
         list.add(object);
     }
 
-   
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,7 +124,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             }
             System.out.println("///");
         } catch(ArrayIndexOutOfBoundsException exception){
-            
+
         }
     }//GEN-LAST:event_txtRadiusFocusGained
 
@@ -136,7 +136,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             }
             System.out.println("///");
         } catch(ArrayIndexOutOfBoundsException exception){
-            
+
         }
     }//GEN-LAST:event_txtAVFocusGained
 
@@ -148,9 +148,9 @@ public class CalculatorFrame extends javax.swing.JFrame {
             }
             System.out.println("///");
         } catch(ArrayIndexOutOfBoundsException exception){
-            
+
         }
-        
+
     }//GEN-LAST:event_txtTVFocusGained
 
     private void txtCAFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCAFocusGained
@@ -161,7 +161,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             }
             System.out.println("///");
         } catch(ArrayIndexOutOfBoundsException exception){
-            
+
         }
     }//GEN-LAST:event_txtCAFocusGained
 
@@ -179,7 +179,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -194,7 +194,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        //java.awt.EventQueue.invokeLater(() -> new CalculatorFrame().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CalculatorFrame().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

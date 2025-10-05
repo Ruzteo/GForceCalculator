@@ -1,8 +1,9 @@
-build/ 
+build/
 dist/
 nbproject/private/
-*.jar 
-*.log 
-*.tmp 
+*.jar
+*.log
+*.tmp
 *.bak
+target
 Thumbs.db

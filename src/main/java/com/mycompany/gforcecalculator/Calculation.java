@@ -8,20 +8,20 @@ package com.mycompany.gforcecalculator;
  *
  * @author ruzte
  */
+//işlemleri obje yaptım daha kolay olsun diye
 public class Calculation {
-    private int priority;
+
     private int value = 0;  
-    private String name;
+    private final String name;
     
-    public Calculation(int priority, String name){
-        this.priority = priority;
+    public Calculation(String name){
         this.name = name; 
     }
     public int getValue(){
         return value; 
     }
     public void setValue(int newValue){
-        priority = newValue;
+        value = newValue;
        
     }
     public String getName(){

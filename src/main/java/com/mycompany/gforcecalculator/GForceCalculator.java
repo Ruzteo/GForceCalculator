@@ -14,7 +14,7 @@ import javax.swing.SwingUtilities;
  * @author ruzte
  */
 public class GForceCalculator {
-
+//main class istersen değiştir
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> new CalculatorFrame().setVisible(true));
        

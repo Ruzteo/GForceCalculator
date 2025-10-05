@@ -10,7 +10,8 @@ package com.mycompany.gforcecalculator;
  */
 public class Calculator {
     public static double calculate(double radious, double Avelocity, double TVelocity, double Cacceleration){
-        //ahmed
+        //buraya işlemler gidiyor
+        
         return 1;
     }
 }

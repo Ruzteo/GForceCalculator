@@ -20,13 +20,14 @@ public class CalculatorFrame extends javax.swing.JFrame {
      * Creates new form CalculatorFrame
      */
     
-    Calculation radious = new Calculation(1,"radious"); 
-    Calculation Avelocity = new Calculation(2, "Avelocity"); 
-    Calculation Tvelocity = new Calculation(3, "Tvelocity"); 
-    Calculation Cacceleration = new Calculation(4, "Cacceleration"); 
+    Calculation radious = new Calculation("radious"); 
+    Calculation Avelocity = new Calculation("Avelocity"); 
+    Calculation Tvelocity = new Calculation("Tvelocity"); 
+    Calculation Cacceleration = new Calculation("Cacceleration"); 
     ArrayList<Calculation> list = new ArrayList<>(4); 
     public CalculatorFrame() {
         initComponents();
+        
         
        
       
@@ -114,7 +115,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //focus ile hangisinin seçildiğini buluyor
     private void txtRadiusFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRadiusFocusGained
         updateList(radious, list);
         try{
@@ -166,7 +167,8 @@ public class CalculatorFrame extends javax.swing.JFrame {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getID() == KeyEvent.VK_ENTER){
-            //calculate
+            //entera basarsa calculate yap, şuan çalışmıyor olabilir
+            System.out.println("enter basıldı");
         }
     }//GEN-LAST:event_formKeyPressed
 

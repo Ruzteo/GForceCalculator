@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 
@@ -31,32 +32,55 @@ public class CalculatorFrame extends javax.swing.JFrame {
      * Creates new form CalculatorFrame
      */
 
-    Calculation radious = new Calculation("radious");
-    Calculation Avelocity = new Calculation("Avelocity");
-    Calculation Tvelocity = new Calculation("Tvelocity");
-    Calculation Cacceleration = new Calculation("Cacceleration");
-    ArrayList<Calculation> list = new ArrayList<>(4);
+    Calculator calculator = Calculator.getInstance();
 
     public CalculatorFrame() {
         initComponents();
-        lblAV.setText("Angular Velocity");
-        lblRadious.setText("Radius");
-        lblTV.setText("Tangential Velocity");
-        lblCA.setText("Centripetal Acceleration");
+        lblAV.setText("Angular Velocity (rad/sec)");
+        lblRadious.setText("Radius (meters)");
+        lblTV.setText("Tangential Velocity (meters/sec)");
+        lblCA.setText("Centripetal Acceleration (g)");
+        updateFields();
         getKeyBinding();
+    }
+
+    private void updateFields() {
+        txtRadius2.setText("" + calculator.get('r'));
+        txtTV.setText("" + calculator.get('v'));
+        txtCA.setText("" + calculator.get('a'));
+        AV.setText("" + calculator.get('w'));
     }
 
     Action enterAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("enter pressed");
+            JTextField source = (JTextField)e.getSource();
+
+            double dbl;
+
+            try {
+                dbl = Double.parseDouble(source.getText());
+            }
+            catch (NumberFormatException exception) {
+                dbl = 0;
+            }
+
+            if (source == txtRadius2) {
+                calculator.set('r', dbl);
+            }
+            else if (source == txtTV) {
+                calculator.set('v', dbl);
+            }
+            else if (source == txtCA) {
+                calculator.set('a', dbl);
+            }
+            else if (source == AV) {
+                calculator.set('w', dbl);
+            }
+
+            updateFields();
         }
     };
-
-    private void updateList(Calculation object, ArrayList<Calculation> list){
-        list.remove(object);
-        list.add(object);
-    }
 
     private void getKeyBinding(){
         InputMap iMap = getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
@@ -190,11 +214,10 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //focus ile hangisinin seçildiğini buluyor
     private void AVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AVFocusGained
-        updateList(radious, list);
+
     }//GEN-LAST:event_AVFocusGained
 
-    private void txtTVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTVFocusGained
-        updateList(Tvelocity, list);
+    private void txtTVFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTVFocusGained;
 
     }//GEN-LAST:event_txtTVFocusGained
 

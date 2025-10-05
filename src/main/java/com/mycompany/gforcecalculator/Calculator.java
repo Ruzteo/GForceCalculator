@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Calculator {
     private static double a, r, v, w;
+    private static double g                  = 9.80665; /* gravity */
     private static ArrayList<Character> prio = new ArrayList<>();
 
     private static void calc(String what) {
